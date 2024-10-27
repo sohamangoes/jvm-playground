@@ -3,6 +3,8 @@ plugins { id("com.diffplug.spotless") version ("6.25.0") }
 repositories { gradlePluginPortal() }
 
 spotless {
+  ratchetFrom("origin/master")
+
   protobuf { buf() }
 
   shell {
