@@ -5,6 +5,11 @@ repositories { gradlePluginPortal() }
 spotless {
   protobuf { buf() }
 
+  shell {
+    target("**/*.sh", "**/*.bash")
+    shfmt("3.10.0")
+  }
+
   json {
     target("**/*.json")
     gson().sortByKeys()
