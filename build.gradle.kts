@@ -49,3 +49,9 @@ spotless {
     prettier()
   }
 }
+
+task("addGitPreCommitHook") {
+  println("⚈ ⚈ ⚈ Running Add Pre Commit Git Hook Script on Build ⚈ ⚈ ⚈")
+  exec { commandLine("cp", "./.scripts/git-hooks/pre-commit", "./.git/hooks") }
+  println("✅ Added Pre Commit Git Hook Script")
+}
