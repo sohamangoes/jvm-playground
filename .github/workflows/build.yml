@@ -8,6 +8,10 @@ jobs:
     steps:
     - name: "Checkout sources"
       uses: "actions/checkout@v4"
+    - name: "Setup sdkman"
+      run: "curl -s \"https://get.sdkman.io?rcupdate=false\" | bash"
+    - name: "Setup project sdk"
+      run: "sdk env install"
     - name: "Gradle build"
       run: "./gradlew clean build"
     - name: "Gradle collect coverage report"
