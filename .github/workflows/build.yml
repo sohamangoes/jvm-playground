@@ -1,21 +1,31 @@
 ---
 name: "Build"
+defaults:
+  run:
+    shell: "bash -ieo pipefail {0}"
 "on":
-- "push"
+  push:
+    branches:
+    - "master"
+  pull_request: null
 jobs:
   compile-and-test:
     runs-on: "ubuntu-latest"
     steps:
     - name: "Checkout sources"
       uses: "actions/checkout@v4"
-    - name: "Setup sdkman"
-      run: "curl -s \"https://get.sdkman.io?rcupdate=false\" | bash"
-    - name: "Setup project sdk"
+    - name: "Install sdkman"
+      run: |
+        curl -s "https://get.sdkman.io" | bash
+        source "$HOME/.sdkman/bin/sdkman-init.sh"
+        sdkman_auto_answer=false
+        sdkman_selfupdate_enable=false
+    - name: "Setup project sdks"
       run: "sdk env install"
-    - name: "Gradle build"
-      run: "./gradlew clean build"
-    - name: "Gradle collect coverage report"
-      run: "./gradlew testCodeCoverageReport"
+    - name: "Run tests"
+      run: |
+        ./gradlew clean test
+        ./gradlew testCodeCoverageReport
     - name: "Archive code coverage report"
       uses: "actions/upload-artifact@v4"
       with:
