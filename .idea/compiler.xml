@@ -9,6 +9,8 @@
         </processorPath>
         <module name="jvm-playground.packages.libraries.hello-world.main" />
         <module name="jvm-playground.packages.libraries.hello-world.test" />
+        <module name="jvm-playground.packages.libraries.leetcode.main" />
+        <module name="jvm-playground.packages.libraries.leetcode.test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="21" />

@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/packages/libraries/hello-world/jvm-playground.packages.libraries.hello-world.main.iml" filepath="$PROJECT_DIR$/.idea/modules/packages/libraries/hello-world/jvm-playground.packages.libraries.hello-world.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/packages/libraries/hello-world/jvm-playground.packages.libraries.hello-world.test.iml" filepath="$PROJECT_DIR$/.idea/modules/packages/libraries/hello-world/jvm-playground.packages.libraries.hello-world.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/packages/libraries/leetcode/jvm-playground.packages.libraries.leetcode.main.iml" filepath="$PROJECT_DIR$/.idea/modules/packages/libraries/leetcode/jvm-playground.packages.libraries.leetcode.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/packages/libraries/leetcode/jvm-playground.packages.libraries.leetcode.test.iml" filepath="$PROJECT_DIR$/.idea/modules/packages/libraries/leetcode/jvm-playground.packages.libraries.leetcode.test.iml" />
     </modules>
   </component>
 </project>

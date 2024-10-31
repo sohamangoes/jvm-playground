@@ -7,4 +7,4 @@
 
 rootProject.name = "jvm-playground"
 
-include(listOf("packages:libraries:hello-world"))
+include(listOf("packages:libraries:hello-world", "packages:libraries:leetcode"))
