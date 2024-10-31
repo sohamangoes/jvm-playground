@@ -1,17 +1,16 @@
 ---
 name: "Build"
 "on":
- - "push"
+- "push"
 jobs:
   compile:
     runs-on: "ubuntu-latest"
     steps:
-     -
+    - name: "Checkout sources"
+      uses: "actions/checkout@v4"
+    - name: "Gradle build (skip tests)"
       run: "./gradlew build -x test"
-  unit-test:
-    runs-on: "ubuntu-latest"
-    steps:
-     -
+    - name: "Gradle unit tests"
       run: "./gradlew test"
-     -
+    - name: "Gradle collect coverage report"
       run: "./gradlew testCodeCoverageReport"
