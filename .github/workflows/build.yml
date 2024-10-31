@@ -1,0 +1,17 @@
+---
+name: "Build"
+"on":
+ - "push"
+jobs:
+  compile:
+    runs-on: "ubuntu-latest"
+    steps:
+     -
+      run: "./gradlew build -x test"
+  unit-test:
+    runs-on: "ubuntu-latest"
+    steps:
+     -
+      run: "./gradlew test"
+     -
+      run: "./gradlew testCodeCoverageReport"
