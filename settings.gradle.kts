@@ -6,3 +6,5 @@
  */
 
 rootProject.name = "jvm-playground"
+
+include(listOf("packages:libraries:hello-world"))
