@@ -1,5 +1,8 @@
 ---
 name: "Build"
+defaults:
+  run:
+    shell: "bash -ieo pipefail {0}"
 "on":
   push:
     branches:
@@ -21,6 +24,7 @@ jobs:
       run: "sdk env install"
     - name: "Run tests"
       run: |
+        java -version
         ./gradlew clean test
         ./gradlew testCodeCoverageReport
     - name: "Archive code coverage report"
