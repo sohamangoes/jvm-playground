@@ -8,8 +8,6 @@ repositories { gradlePluginPortal() }
 dependencies { jacocoAggregation(project(":packages:libraries:hello-world")) }
 
 spotless {
-  ratchetFrom("origin/master")
-
   protobuf { buf() }
 
   shell {
