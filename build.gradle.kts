@@ -17,11 +17,13 @@ spotless {
 
   json {
     target("**/*.json")
+    targetExclude("**/build/**")
     gson().sortByKeys()
   }
 
   yaml {
     target("**/*.yaml", "**/*.yml")
+    targetExclude("**/build/**")
     endWithNewline()
     trimTrailingWhitespace()
     jackson().yamlFeature("LITERAL_BLOCK_STYLE", true).yamlFeature("SPLIT_LINES", true)
@@ -29,6 +31,7 @@ spotless {
 
   java {
     target("**/*.java")
+    targetExclude("**/build/**")
     googleJavaFormat()
     formatAnnotations()
     removeUnusedImports()
@@ -36,11 +39,13 @@ spotless {
 
   kotlin {
     target("**/*.kt")
+    targetExclude("**/build/**")
     ktfmt().googleStyle()
   }
 
   kotlinGradle {
     target("**/*.gradle.kts")
+    targetExclude("**/build/**")
     ktfmt().googleStyle()
   }
 
