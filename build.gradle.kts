@@ -26,10 +26,7 @@ spotless {
     target("**/*.yaml", "**/*.yml")
     endWithNewline()
     trimTrailingWhitespace()
-    jackson()
-      .yamlFeature("INDENT_ARRAYS", true)
-      .yamlFeature("LITERAL_BLOCK_STYLE", true)
-      .yamlFeature("SPLIT_LINES", true)
+    jackson().yamlFeature("LITERAL_BLOCK_STYLE", true).yamlFeature("SPLIT_LINES", true)
   }
 
   java {
