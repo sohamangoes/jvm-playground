@@ -1,6 +1,11 @@
-plugins { id("com.diffplug.spotless") version ("6.25.0") }
+plugins {
+  id("com.diffplug.spotless") version ("6.25.0")
+  id("jacoco-report-aggregation")
+}
 
 repositories { gradlePluginPortal() }
+
+dependencies { jacocoAggregation(project(":packages:libraries:hello-world")) }
 
 spotless {
   ratchetFrom("origin/master")
@@ -47,6 +52,13 @@ spotless {
   sql {
     target("**/*.sql")
     prettier()
+  }
+}
+
+reporting {
+  reports {
+    val testCodeCoverageReport by
+      creating(JacocoCoverageReport::class) { testType = TestSuiteType.UNIT_TEST }
   }
 }
 
