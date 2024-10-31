@@ -1,0 +1,34 @@
+---
+name: "Test coverage"
+defaults:
+  run:
+    shell: "bash -ieo pipefail {0}"
+"on":
+- "pull_request"
+jobs:
+  coverage:
+    runs-on: "ubuntu-latest"
+    steps:
+    - name: "Checkout sources"
+      uses: "actions/checkout@v4"
+    - name: "Install sdkman"
+      run: |
+        curl -s "https://get.sdkman.io" | bash
+        source "$HOME/.sdkman/bin/sdkman-init.sh"
+        sdkman_auto_answer=false
+        sdkman_selfupdate_enable=false
+    - name: "Setup project sdks"
+      run: "sdk env install"
+    - name: "Run tests and coverage"
+      run: |
+        java -version
+        ./gradlew clean test
+        ./gradlew testCodeCoverageReport
+    - name: "Add coverage report to PR"
+      id: "jacoco"
+      uses: "madrapps/jacoco-report@v1.3"
+      with:
+        paths: "${{ github.workspace }}/build/reports/jacoco/testCodeCoverageReport/testCodeCoverageReport.xml"
+        token: "${{ secrets.GITHUB_TOKEN }}"
+        min-coverage-overall: "80"
+        min-coverage-changed-files: "80"

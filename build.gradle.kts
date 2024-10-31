@@ -5,7 +5,10 @@ plugins {
 
 repositories { gradlePluginPortal() }
 
-dependencies { jacocoAggregation(project(":packages:libraries:hello-world")) }
+dependencies {
+  jacocoAggregation(project(":packages:libraries:hello-world"))
+  jacocoAggregation(project(":packages:libraries:leetcode"))
+}
 
 spotless {
   protobuf { buf() }
